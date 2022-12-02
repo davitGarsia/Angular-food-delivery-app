@@ -1,0 +1,41 @@
+<div class="header">
+  <div class="background"></div>
+  <div class="texts">
+    <p class="text-5xl text-center text">Restaurants and more,</p>
+    <p class="text-5xl text-center text">delivered to your door</p>
+
+    <form class="search-form flex" (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="flex search">
+        <input
+          class="search shadow appearance-none border rounded py-4 px-12 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-auto mt-20"
+          id="search"
+          type="text"
+          placeholder="Search your favourite food"
+          [(ngModel)]="searchTerm"
+          name="userInput"
+          #text="ngModel"
+          (ngModelChange)="getResults($event)"
+        />
+        <button type="submit" class="btn">
+          <span class="material-icons search-icon">search</span>
+        </button>
+      </div>
+    </form>
+    <div class="wrapper">
+      <div class="search-container">
+        <div class="search-results">
+          <div class="img-wrapper">
+            <div class="images" *ngFor="let img of state.imgURL">
+              <img class="res-img" [src]="img" />
+            </div>
+          </div>
+          <div class="title-wrapper">
+            <div class="titles" *ngFor="let title of state.title">
+              <p class="dish-title">{{ title }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
