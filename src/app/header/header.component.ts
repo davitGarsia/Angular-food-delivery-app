@@ -13,6 +13,7 @@ import { map } from 'rxjs';
 export class HeaderComponent implements OnInit {
   searchTerm = '';
   @ViewChild('f') userInput!: NgForm;
+  showContainer = false;
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +30,8 @@ export class HeaderComponent implements OnInit {
   }
 
   getResults(term: any) {
+    term.length > 1 ? (this.showContainer = true) : false;
+    term.length == 0 ? (this.showContainer = false) : true;
     this.http
       .get(`https://forkify-api.herokuapp.com/api/v2/recipes`, {
         params: new HttpParams().set('search', term),
@@ -53,7 +56,6 @@ export class HeaderComponent implements OnInit {
       .subscribe((res: any) => {
         this.state.imgURL = res.url;
         this.state.title = res.title;
-        console.log(res);
       });
   }
 

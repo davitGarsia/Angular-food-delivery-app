@@ -7,7 +7,7 @@
     <form class="search-form flex" (ngSubmit)="onSubmit()" #f="ngForm">
       <div class="flex search">
         <input
-          class="search shadow appearance-none border rounded py-4 px-12 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-auto mt-20"
+          class="search shadow appearance-none border rounded w-5/12 py-4 px-12 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-auto mt-20"
           id="search"
           type="text"
           placeholder="Search your favourite food"
@@ -22,16 +22,16 @@
       </div>
     </form>
     <div class="wrapper">
-      <div class="search-container">
+      <div class="container mx-auto" *ngIf="showContainer">
         <div class="search-results">
           <div class="img-wrapper">
             <div class="images" *ngFor="let img of state.imgURL">
-              <img class="res-img" [src]="img" />
+              <img class="res-img mt-3" [src]="img" />
             </div>
           </div>
           <div class="title-wrapper">
             <div class="titles" *ngFor="let title of state.title">
-              <p class="dish-title">{{ title }}</p>
+              <p class="dish-title mt-8">{{ title }}</p>
             </div>
           </div>
         </div>
