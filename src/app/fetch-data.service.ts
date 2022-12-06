@@ -29,12 +29,6 @@ export class FetchDataService {
             resArray.title.push(recipe.title);
             resArray.url.push(recipe.image_url);
             resArray.id.push(recipe.id);
-            //this.id = resArray.id[this.index];
-
-            // this.state.title = recipe.title;
-            // this.state.imgURL = recipe.imgURL;
-            // console.log(this.state.title);
-            //console.log(recipe);
           });
           return resArray;
         })
@@ -61,11 +55,6 @@ export class FetchDataService {
           responseData.data.recipe.ingredients.forEach((ingredient: any) => {
             resArray.ingredients.push(ingredient.description);
             console.log(resArray.ingredients);
-
-            // this.state.title = recipe.title;
-            // this.state.imgURL = recipe.imgURL;
-            // console.log(this.state.title);
-            //console.log(recipe);
           });
           return resArray;
         })
