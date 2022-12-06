@@ -25,16 +25,24 @@
       <div class="container mx-auto" *ngIf="showContainer">
         <div class="search-results">
           <div class="img-wrapper">
-            <a href="#" class="individual-dish">
-              <div class="images" *ngFor="let img of state.imgURL">
+            <a class="individual-dish">
+              <div class="images" href="#" *ngFor="let img of state.imgURL">
                 <img class="res-img mt-4" [src]="img" />
               </div>
             </a>
           </div>
           <div class="title-wrapper">
-            <a href="#" class="individual-dish">
-              <div class="titles" *ngFor="let title of state.title">
-                <p class="dish-title hover:text-gray-600">{{ title }}</p>
+            <a routerLink="dish" class="individual-dish">
+              <div
+                class="titles"
+                *ngFor="let title of state.title; let i = index"
+              >
+                <p
+                  class="dish-title hover:text-gray-600"
+                  (click)="onGetIndex(i)"
+                >
+                  {{ title }}
+                </p>
               </div>
             </a>
           </div>
@@ -43,3 +51,7 @@
     </div>
   </div>
 </div>
+
+<!-- ანუ ვცადოთ პარაზე ქლიქ ლისნერის დამატება და მერე შესაბამისი მეთოდით
+     კომპონენტში ინდექსს გადავცემ მეორე კომპონენტს.
+-->
